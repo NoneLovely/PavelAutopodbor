@@ -1,4 +1,3 @@
-// Переключение вкладок
 const tabLinks = document.querySelectorAll('.tab-link');
 const tabContents = document.querySelectorAll('.tab-content');
 
@@ -7,17 +6,14 @@ tabLinks.forEach(link => {
         e.preventDefault();
         const target = link.getAttribute('href');
 
-        // Скрыть все вкладки
         tabContents.forEach(content => {
             content.classList.remove('active');
         });
 
-        // Показать активную вкладку
         document.querySelector(target).classList.add('active');
     });
 });
 
-// Бургер-меню для мобильных устройств
 const burgerMenu = document.getElementById('burger-menu');
 const nav = document.getElementById('nav');
 
@@ -25,58 +21,49 @@ burgerMenu.addEventListener('click', () => {
     nav.classList.toggle('hidden');
 });
 
-// Открытие popup при нажатии на кнопку "Войти"
 document.querySelector('a[href="#login"]').addEventListener('click', function (e) {
-    e.preventDefault(); // Предотвращаем переход по ссылке
+    e.preventDefault();
     document.getElementById('overlay').classList.remove('hidden');
     document.getElementById('login-popup').classList.remove('hidden');
-    showLoginForm(); // Показываем форму входа по умолчанию
+    showLoginForm();
 });
 
-// Закрытие popup при нажатии на кнопку закрытия
 document.getElementById('close-popup').addEventListener('click', function () {
     document.getElementById('overlay').classList.add('hidden');
     document.getElementById('login-popup').classList.add('hidden');
 });
 
-// Закрытие popup при клике вне его области
 document.getElementById('overlay').addEventListener('click', function () {
     document.getElementById('overlay').classList.add('hidden');
     document.getElementById('login-popup').classList.add('hidden');
 });
 
-// Переключение на форму регистрации
 document.getElementById('show-register-form').addEventListener('click', function (e) {
-    e.preventDefault(); // Предотвращаем переход по ссылке
+    e.preventDefault();
     showRegisterForm();
 });
 
-// Переключение на форму входа
 document.getElementById('show-login-form').addEventListener('click', function (e) {
-    e.preventDefault(); // Предотвращаем переход по ссылке
+    e.preventDefault();
     showLoginForm();
 });
 
-// Функция для показа формы входа
 function showLoginForm() {
     document.getElementById('login-form').classList.remove('hidden');
     document.getElementById('register-form').classList.add('hidden');
 }
 
-// Функция для показа формы регистрации
 function showRegisterForm() {
     document.getElementById('register-form').classList.remove('hidden');
     document.getElementById('login-form').classList.add('hidden');
 }
 
-// Инициализация карты
 ymaps.ready(function () {
     const map = new ymaps.Map("map", {
-        center: [55.827419, 49.080956], // Координаты Казани
+        center: [55.827419, 49.080956],
         zoom: 12,
     });
 
-    // Добавляем метку
     const placemark = new ymaps.Placemark([55.827419, 49.080956], {
         hintContent: "Pavel Avtopodbor",
         balloonContent: "Мы находимся здесь!",
@@ -99,16 +86,13 @@ async function sendRequest(method, params) {
 async function login(username, password) {
     const response = await sendRequest('login', { username, password });
     if (response.вывод.username) {
-        // Успешный вход
         document.getElementById('login-info').classList.add('hidden');
         document.getElementById('user-info').classList.remove('hidden');
         document.getElementById('user-name').textContent = response.вывод.username;
         document.getElementById('user-phone').textContent = response.вывод.phone;
 
-        // Сохранение данных в localStorage
         localStorage.setItem('user', JSON.stringify(response.вывод));
 
-        // Загрузка заявок пользователя
         loadUserRequests(response.вывод.phone);
     } else {
         alert(response.вывод);
@@ -118,7 +102,7 @@ async function login(username, password) {
 async function register(username, phone, password1, password2) {
     const response = await sendRequest('register', { username, phone, password1, password2 });
     if (response.вывод.username) {
-        // Успешная регистрация
+
         alert('Регистрация прошла успешно!');
         showLoginForm();
     } else {
@@ -128,7 +112,7 @@ async function register(username, phone, password1, password2) {
 
 async function submitRequest(name, phone, message) {
     alert('Заявка успешно отправлена!');
-    // Очистка полей формы
+
     document.getElementById("reqName").value = "";
     document.getElementById("reqPhone").value = "";
     document.getElementById("reqMessage").value = "";
@@ -167,7 +151,6 @@ async function loadPosts() {
     blogSection.appendChild(postsContainer);
 }
 
-// Проверка, авторизован ли пользователь при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
@@ -180,14 +163,12 @@ document.addEventListener('DOMContentLoaded', () => {
     loadPosts();
 });
 
-// Выход из системы
 document.getElementById('logout').addEventListener('click', function () {
     localStorage.removeItem('user');
     document.getElementById('user-info').classList.add('hidden');
     document.getElementById('login-info').classList.remove('hidden');
 });
 
-// Обработчики форм
 document.getElementById('login-form').addEventListener('submit', function (e) {
     e.preventDefault();
     const username = this.querySelector('input[type="text"]').value;
