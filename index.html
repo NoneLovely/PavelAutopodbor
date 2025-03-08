@@ -11,11 +11,8 @@
     <script src="https://api-maps.yandex.ru/2.1/?e9de4cdf-9fa4-4b06-99c2-345dd024b597&lang=ru_RU" type="text/javascript"></script>
 </head>
 <body class="bg-gray-900 text-gray-100 flex flex-col items-center min-h-screen p-8">
-    <!-- Основной блок -->
     <div class="bg-gray-800 border border-gray-700 shadow-lg rounded-xl p-8 max-w-4xl w-full mx-4">
-        <!-- Шапка сайта -->
         <header class="border-b border-gray-700 pb-6 mb-8">
-            <!-- Бургер-меню для мобильных устройств -->
             <div class="flex justify-between items-center mb-6">
                 <div class="flex items-center">
                     <img src="images/logo.png" alt="Логотип Pavel Avtopodbor" class="w-10 h-10 mr-3" />
@@ -25,7 +22,7 @@
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
-            <!-- Навигация -->
+
             <nav id="nav" class="bg-gray-700 p-4 rounded-lg hidden md:flex flex-col md:flex-row justify-around space-y-4 md:space-y-0">
                 <a href="#main" class="tab-link text-gray-300 hover:bg-green-500 hover:text-gray-900 px-4 py-2 rounded-lg transition duration-300 flex items-center">
                     <i class="fas fa-home mr-2"></i>Главная
@@ -48,12 +45,10 @@
             </nav>
         </header>
 
-        <!-- Основной контент -->
         <div id="main-content">
             <section id="main" class="tab-content active mb-8">
                 <h2 class="text-3xl font-bold text-green-500 mb-6">Добро пожаловать на сайт</h2>
 
-                <!-- График работы -->
                 <div class="bg-gray-700 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold text-green-500 mb-4">График работы</h3>
                     <p class="text-gray-400">
@@ -62,7 +57,6 @@
                     </p>
                 </div>
             
-                <!-- Прайс-лист -->
                 <div class="bg-gray-700 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold text-green-500 mb-4">Прайс-лист</h3>
                     <ul class="text-gray-400 space-y-2">
@@ -73,7 +67,6 @@
                     </ul>
                 </div>
             
-                <!-- Описание услуг -->
                 <div class="bg-gray-700 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold text-green-500 mb-4">Что проверяем</h3>
                     <p class="text-gray-400">
@@ -83,7 +76,6 @@
                     </p>
                 </div>
             
-                <!-- Теги -->
                 <div class="bg-gray-700 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold text-green-500 mb-4">Теги</h3>
                     <div class="flex flex-wrap gap-2">
@@ -101,11 +93,9 @@
                     </div>
                 </div>
             
-                <!-- Карта -->
                 <div class="mt-8">
                     <h3 class="text-2xl font-bold text-green-500 mb-4">Мы находимся</h3>
                     <div id="map" class="h-64 rounded-lg overflow-hidden"></div>
-                    <!-- Красивая надпись с адресом -->
                     <div class="mt-4 flex items-center justify-center bg-gray-700 p-4 rounded-lg">
                         <i class="fas fa-map-marker-alt text-green-500 text-2xl mr-3"></i>
                         <p class="text-gray-300 text-lg font-semibold">
@@ -114,13 +104,11 @@
                     </div>
                 </div>
             
-                <!-- Логотип на главной странице -->
                 <div class="flex justify-center mt-16">
                     <img src="images/logo.png" alt="Логотип Pavel Avtopodbor" class="w-24 h-24" />
                 </div>
             </section>
 
-            <!-- Об эксперте -->
             <section id="about" class="tab-content mb-8">
                 <h2 class="text-3xl font-bold text-green-500 mb-6">Об эксперте</h2>
                 <p class="text-gray-400 mb-6">
@@ -139,11 +127,9 @@
                 </div>
             </section>
 
-            <!-- Услуги -->
             <section id="services" class="tab-content mb-8">
                 <h2 class="text-3xl font-bold text-green-500 mb-6">Услуги</h2>
 
-                <!-- Диагностика авто перед покупкой -->
                 <div class="bg-gray-700 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold text-green-500 mb-4">Диагностика авто перед покупкой</h3>
                     <div class="space-y-4">
@@ -171,7 +157,6 @@
                     </div>
                 </div>
 
-                <!-- Подбор автомобиля -->
                 <div class="bg-gray-700 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold text-green-500 mb-4">Подбор автомобиля</h3>
                     <div class="space-y-4">
@@ -199,7 +184,6 @@
                     </div>
                 </div>
 
-                <!-- Оценка авто, консультация, юридическая поддержка и сопровождение сделки в ГАИ -->
                 <div class="bg-gray-700 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold text-green-500 mb-4">Оценка авто, консультация, юридическая поддержка и сопровождение сделки в ГАИ</h3>
                     <div class="space-y-4">
@@ -233,7 +217,6 @@
                     </div>
                 </div>
 
-                <!-- Е-ОСАГО -->
                 <div class="bg-gray-700 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold text-green-500 mb-4">Е-ОСАГО</h3>
                     <div class="space-y-4">
@@ -251,12 +234,10 @@
                 </div>
             </section>
 
-            <!-- Блог -->
             <section id="blog" class="tab-content mb-8">
                 <h2 class="text-3xl font-bold text-green-500 mb-6">Блог</h2>
             </section>
 
-            <!-- Контакты -->
             <section id="contacts" class="tab-content mb-8">
                 <h2 class="text-3xl font-bold text-green-500 mb-6">Контакты</h2>
                 <div class="space-y-4">
@@ -283,7 +264,6 @@
                 </div>
             </section>
 
-            <!-- Личный кабинет -->
             <section id="account" class="tab-content mb-8">
                 <h2 class="text-3xl font-bold text-green-500 mb-6">Личный кабинет</h2>
                 <div id="login-info" class="">
@@ -302,11 +282,9 @@
                     <h3 class="text-2xl font-bold text-green-500 mb-4">Ваши заявки</h3>
                     <div class="bg-gray-700 p-6 rounded-lg">
                         <ul id="user-requests" class="text-gray-400 space-y-2">
-                            <!-- Заявки будут добавляться сюда динамически -->
                         </ul>
                     </div>
             
-                    <!-- Кнопка выхода -->
                     <button id="logout" class="w-full bg-green-500 text-gray-900 py-2 rounded-lg hover:bg-green-600 transition duration-300 flex items-center justify-center mt-6">
                         <i class="fas fa-sign-out-alt mr-2"></i>Выйти
                     </button>
@@ -315,7 +293,6 @@
         </div>
     </div>
 
-    <!-- Блок для записи на услугу (всегда видимый) -->
     <div class="bg-gray-800 border border-gray-700 shadow-lg rounded-xl p-8 max-w-4xl w-full mx-4 mt-8">
         <section>
             <h2 class="text-3xl font-bold text-green-500 mb-6">Записаться на услугу</h2>
@@ -330,18 +307,14 @@
         </section>
     </div>
 
-   <!-- Затемнение фона -->
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
 
-    <!-- Popup с формами входа и регистрации -->
     <div id="login-popup" class="fixed inset-0 flex items-center justify-center hidden">
         <div class="bg-gray-800 border border-gray-700 rounded-lg p-8 max-w-md w-full mx-4 relative">
-            <!-- Кнопка закрытия popup -->
             <button id="close-popup" class="absolute top-4 right-4 text-gray-400 hover:text-green-500">
                 <i class="fas fa-times text-2xl"></i>
             </button>
 
-            <!-- Форма входа -->
             <div id="login-form">
                 <h2 class="text-2xl font-bold text-green-500 mb-6">Вход в личный кабинет</h2>
                 <form class="space-y-4">
@@ -362,7 +335,6 @@
                 </form>
             </div>
 
-            <!-- Форма регистрации -->
             <div id="register-form" class="hidden">
                 <h2 class="text-2xl font-bold text-green-500 mb-6">Регистрация</h2>
                 <form class="space-y-4">
