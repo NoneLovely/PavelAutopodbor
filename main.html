@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автоподбор - Pavel Avtopodbor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?e9de4cdf-9fa4-4b06-99c2-345dd024b597&lang=ru_RU" type="text/javascript"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 flex flex-col items-center min-h-screen p-8">
+    <!-- Основной блок -->
+    <div class="bg-gray-800 border border-gray-700 shadow-lg rounded-xl p-8 max-w-4xl w-full mx-4">
+        <!-- Шапка сайта -->
+        <header class="border-b border-gray-700 pb-6 mb-8">
+            <!-- Бургер-меню для мобильных устройств -->
+            <div class="flex justify-between items-center mb-6">
+                <div class="flex items-center">
+                    <img src="images/logo.png" alt="Логотип Pavel Avtopodbor" class="w-10 h-10 mr-3" />
+                    <h1 class="text-xl font-bold">Pavel Avtopodbor</h1>
+                </div>
+                <button id="burger-menu" class="md:hidden text-gray-300 hover:text-green-500 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <!-- Навигация -->
+            <nav id="nav" class="bg-gray-700 p-4 rounded-lg hidden md:flex flex-col md:flex-row justify-around space-y-4 md:space-y-0">
+                <a href="#main" class="tab-link text-gray-300 hover:bg-green-500 hover:text-gray-900 px-4 py-2 rounded-lg transition duration-300 flex items-center">
+                    <i class="fas fa-home mr-2"></i>Главная
+                </a>
+                <a href="#about" class="tab-link text-gray-300 hover:bg-green-500 hover:text-gray-900 px-4 py-2 rounded-lg transition duration-300 flex items-center">
+                    <i class="fas fa-user mr-2"></i>Об эксперте
+                </a>
+                <a href="#services" class="tab-link text-gray-300 hover:bg-green-500 hover:text-gray-900 px-4 py-2 rounded-lg transition duration-300 flex items-center">
+                    <i class="fas fa-tools mr-2"></i>Услуги
+                </a>
+                <a href="#blog" class="tab-link text-gray-300 hover:bg-green-500 hover:text-gray-900 px-4 py-2 rounded-lg transition duration-300 flex items-center">
+                    <i class="fas fa-book mr-2"></i>Блог
+                </a>
+                <a href="#contacts" class="tab-link text-gray-300 hover:bg-green-500 hover:text-gray-900 px-4 py-2 rounded-lg transition duration-300 flex items-center">
+                    <i class="fas fa-phone mr-2"></i>Контакты
+                </a>
+                <a href="#account" class="tab-link text-gray-300 hover:bg-green-500 hover:text-gray-900 px-4 py-2 rounded-lg transition duration-300 flex items-center">
+                    <i class="fas fa-user-circle mr-2"></i>Личный кабинет
+                </a>
+            </nav>
+        </header>
+
+        <!-- Основной контент -->
+        <div id="main-content">
+            <section id="main" class="tab-content active mb-8">
+                <h2 class="text-3xl font-bold text-green-500 mb-6">Добро пожаловать на сайт</h2>
+
+                <!-- График работы -->
+                <div class="bg-gray-700 p-6 rounded-lg mb-6">
+                    <h3 class="text-2xl font-bold text-green-500 mb-4">График работы</h3>
+                    <p class="text-gray-400">
+                        <i class="fas fa-calendar-alt text-green-500 mr-2"></i>Пн, Вт, Ср, Чт, Пт, Сб, Вс<br>
+                        <i class="fas fa-clock text-green-500 mr-2"></i>08:00–22:00
+                    </p>
+                </div>
+            
+                <!-- Прайс-лист -->
+                <div class="bg-gray-700 p-6 rounded-lg mb-6">
+                    <h3 class="text-2xl font-bold text-green-500 mb-4">Прайс-лист</h3>
+                    <ul class="text-gray-400 space-y-2">
+                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Услуги от 999 ₽</li>
+                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Диагностика авто перед покупкой от 4 000 ₽</li>
+                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Подбор автомобиля от 35 000 ₽</li>
+                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Помощь в оформлении сделки от 3 000 ₽</li>
+                    </ul>
+                </div>
+            
+                <!-- Описание услуг -->
+                <div class="bg-gray-700 p-6 rounded-lg mb-6">
+                    <h3 class="text-2xl font-bold text-green-500 mb-4">Что проверяем</h3>
+                    <p class="text-gray-400">
+                        <i class="fas fa-car text-green-500 mr-2"></i>Юридическую чистоту, сверку номеров и агрегатов, кузов и болты оперения, лако-красочное покрытие, внешний вид и салон, днище и шасси, компьютерная диагностика, обоснованный торг. Эндоскоп, замер компрессии, осмотр на подъёмнике, сопровождение сделки в ГИБДД оплачивается отдельно.<br>
+                        <i class="fas fa-check text-green-500 mr-2"></i>Целесообразность покупки, авто проверка по различным базам.<br>
+                        <i class="fas fa-handshake text-green-500 mr-2"></i>Все честно без обмана.
+                    </p>
+                </div>
+            
+                <!-- Теги -->
+                <div class="bg-gray-700 p-6 rounded-lg mb-6">
+                    <h3 class="text-2xl font-bold text-green-500 mb-4">Теги</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-600 text-gray-300 px-3 py-1 rounded-full text-sm">#автоподбор</span>
+                        <span class="bg-gray-600 text-gray-300 px-3 py-1 rounded-full text-sm">#Казань автоподбор</span>
+                        <span class="bg-gray-600 text-gray-300 px-3 py-1 rounded-full text-sm">#автоэксперт</span>
+                        <span class="bg-gray-600 text-gray-300 px-3 py-1 rounded-full text-sm">#помощь в покупке авто</span>
+                        <span class="bg-gray-600 text-gray-300 px-3 py-1 rounded-full text-sm">#проверка авто</span>
+                        <span class="bg-gray-600 text-gray-300 px-3 py-1 rounded-full text-sm">#диагностика авто</span>
+                        <span class="bg-gray-600 text-gray-300 px-3 py-1 rounded-full text-sm">#подбор автомобиля</span>
+                        <span class="bg-gray-600 text-gray-300 px-3 py-1 rounded-full text-sm">#автоэксперт в Казани</span>
+                        <span class="bg-gray-600 text-gray-300 px-3 py-1 rounded-full text-sm">#проверка ЛКП</span>
+                        <span class="bg-gray-600 text-gray-300 px-3 py-1 rounded-full text-sm">#Сохранение номеров в ГАИ</span>
+                        <span class="bg-gray-600 text-gray-300 px-3 py-1 rounded-full text-sm">#ОСАГО</span>
+                    </div>
+                </div>
+            
+                <!-- Карта -->
+                <div class="mt-8">
+                    <h3 class="text-2xl font-bold text-green-500 mb-4">Мы находимся</h3>
+                    <div id="map" class="h-64 rounded-lg overflow-hidden"></div>
+                    <!-- Красивая надпись с адресом -->
+                    <div class="mt-4 flex items-center justify-center bg-gray-700 p-4 rounded-lg">
+                        <i class="fas fa-map-marker-alt text-green-500 text-2xl mr-3"></i>
+                        <p class="text-gray-300 text-lg font-semibold">
+                            Республика Татарстан, Казань, ул. Декабристов, 131
+                        </p>
+                    </div>
+                </div>
+            
+                <!-- Логотип на главной странице -->
+                <div class="flex justify-center mt-16">
+                    <img src="images/logo.png" alt="Логотип Pavel Avtopodbor" class="w-24 h-24" />
+                </div>
+            </section>
+
+            <!-- Об эксперте -->
+            <section id="about" class="tab-content mb-8">
+                <h2 class="text-3xl font-bold text-green-500 mb-6">Об эксперте</h2>
+                <p class="text-gray-400 mb-6">
+                    Здравствуйте! Меня зовут Павел, я являюсь Автоэкспертом по проверке автомобилей перед покупкой.
+                    За всё время накопился большой опыт и багаж знаний.
+                    <br>
+                    <br>
+                    Дорожу репутацией не беру процент с ТОРГА, откаты. Все мои фото реальные.
+                    <br>
+                    <br>
+                    Если по какой то причине вы не сможете поехать на осмотр, либо иногородний, я делаю полную проверку автомобиля. После этого я вам звоню и даю полную информацию по автомобилю , так же подгружаю фото и видео отчет на Яндекс диск, после этого отправляю вам ссылку на него.
+                    По итогу этого у нас есть полное понимание стоит рассматривать его к покупке или нет.
+                </p>
+                <div class="flex justify-center mt-16">
+                    <i class="fas fa-user-tie text-6xl text-green-500"></i>
+                </div>
+            </section>
+
+            <!-- Услуги -->
+            <section id="services" class="tab-content mb-8">
+                <h2 class="text-3xl font-bold text-green-500 mb-6">Услуги</h2>
+
+                <!-- Диагностика авто перед покупкой -->
+                <div class="bg-gray-700 p-6 rounded-lg mb-6">
+                    <h3 class="text-2xl font-bold text-green-500 mb-4">Диагностика авто перед покупкой</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-600 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-car text-green-500 text-2xl mr-3"></i>
+                                <h4 class="text-xl font-semibold text-green-500">Выездная диагностика</h4>
+                            </div>
+                            <p class="text-gray-400">Исследование технического состояния легкового автомобиля.</p>
+                        </div>
+                        <div class="bg-gray-600 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-truck text-green-500 text-2xl mr-3"></i>
+                                <h4 class="text-xl font-semibold text-green-500">Выездная диагностика «Бизнес»</h4>
+                            </div>
+                            <p class="text-gray-400">Исследование технического состояния коммерческой и специальной техники.</p>
+                        </div>
+                        <div class="bg-gray-600 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-laptop-medical text-green-500 text-2xl mr-3"></i>
+                                <h4 class="text-xl font-semibold text-green-500">Выездная диагностика «Сканер»</h4>
+                            </div>
+                            <p class="text-gray-400">Выездная компьютерная диагностика легкового автомобиля.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Подбор автомобиля -->
+                <div class="bg-gray-700 p-6 rounded-lg mb-6">
+                    <h3 class="text-2xl font-bold text-green-500 mb-4">Подбор автомобиля</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-600 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-car-side text-green-500 text-2xl mr-3"></i>
+                                <h4 class="text-xl font-semibold text-green-500">Автоподбор</h4>
+                            </div>
+                            <p class="text-gray-400">
+                                Подбор легкового автомобиля под ключ:  
+                                <ul class="list-disc list-inside text-gray-400 mt-2">
+                                    <li>Без ограничений по количеству автомобилей.</li>
+                                    <li>Без ограничений по мощности.</li>
+                                    <li>Без ограничений по радиусу поиска.</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="bg-gray-600 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-truck-moving text-green-500 text-2xl mr-3"></i>
+                                <h4 class="text-xl font-semibold text-green-500">Автоподбор «Бизнес» (в т.ч. лизинг с НДС)</h4>
+                            </div>
+                            <p class="text-gray-400">Подбор грузового, коммерческого автомобиля или специальной техники под ключ.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Оценка авто, консультация, юридическая поддержка и сопровождение сделки в ГАИ -->
+                <div class="bg-gray-700 p-6 rounded-lg mb-6">
+                    <h3 class="text-2xl font-bold text-green-500 mb-4">Оценка авто, консультация, юридическая поддержка и сопровождение сделки в ГАИ</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-600 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-file-alt text-green-500 text-2xl mr-3"></i>
+                                <h4 class="text-xl font-semibold text-green-500">Заполнение заявления в ГАИ</h4>
+                            </div>
+                            <p class="text-gray-400">Помощь в постановке автомобиля на учет.</p>
+                        </div>
+                        <div class="bg-gray-600 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-search text-green-500 text-2xl mr-3"></i>
+                                <h4 class="text-xl font-semibold text-green-500">Сверка номера ДВС и VIN</h4>
+                            </div>
+                            <p class="text-gray-400">Проверка соответствия данных автомобиля.</p>
+                        </div>
+                        <div class="bg-gray-600 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-id-card text-green-500 text-2xl mr-3"></i>
+                                <h4 class="text-xl font-semibold text-green-500">Сохранение гос. номеров</h4>
+                            </div>
+                            <p class="text-gray-400">
+                                Услуги по сохранению государственных номеров:  
+                                <ul class="list-disc list-inside text-gray-400 mt-2">
+                                    <li>Оформление доверенности для представления интересов в ГАИ.</li>
+                                    <li>Оплата госпошлины и заполнение заявления.</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Е-ОСАГО -->
+                <div class="bg-gray-700 p-6 rounded-lg mb-6">
+                    <h3 class="text-2xl font-bold text-green-500 mb-4">Е-ОСАГО</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-600 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-file-contract text-green-500 text-2xl mr-3"></i>
+                                <h4 class="text-xl font-semibold text-green-500">Оформление полиса ОСАГО</h4>
+                            </div>
+                            <p class="text-gray-400">
+                                Внесение необходимых данных.  
+                                Покупка полиса и отправка на электронную почту в формате PDF.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блог -->
+            <section id="blog" class="tab-content mb-8">
+                <h2 class="text-3xl font-bold text-green-500 mb-6">Блог</h2>
+            </section>
+
+            <!-- Контакты -->
+            <section id="contacts" class="tab-content mb-8">
+                <h2 class="text-3xl font-bold text-green-500 mb-6">Контакты</h2>
+                <div class="space-y-4">
+                    <p class="text-gray-400 flex items-center">
+                        <i class="fab fa-whatsapp text-green-500 mr-2"></i>
+                        <a href="https://wa.me/79393138181" class="text-green-500 hover:underline">WhatsApp</a>
+                    </p>
+                    <p class="text-gray-400 flex items-center">
+                        <i class="fab fa-youtube text-green-500 mr-2"></i>
+                        <a href="https://youtube.com/@PavelAvtopodbor" class="text-green-500 hover:underline">YouTube</a>
+                    </p>
+                    <p class="text-gray-400 flex items-center">
+                        <i class="fab fa-telegram text-green-500 mr-2"></i>
+                        <a href="https://t.me/PavelAvtoexpert" class="text-green-500 hover:underline">Telegram</a>
+                    </p>
+                    <p class="text-gray-400 flex items-center">
+                        <i class="fab fa-instagram text-green-500 mr-2"></i>
+                        <a href="https://instagram.com/pavel_avtopodbor" class="text-green-500 hover:underline">Instagram</a>
+                    </p>
+                    <p class="text-gray-400 flex items-center">
+                        <i class="fas fa-link text-green-500 mr-2"></i>
+                        <a href="https://www.avito.ru/kazan/predlozheniya_uslug/uslugi_avto_podborschika_avtoeksperta_2793320614" class="text-green-500 hover:underline">Авито</a>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Личный кабинет -->
+            <section id="account" class="tab-content mb-8">
+                <h2 class="text-3xl font-bold text-green-500 mb-6">Личный кабинет</h2>
+                <div id="login-info" class="">
+                <p class="text-gray-400 mb-4">Войдите в личный кабинет для управления своими заявками.</p>
+                <a href="#login" class="text-green-500 hover:underline flex items-center">
+                    <i class="fas fa-sign-in-alt mr-2"></i>Войти
+                </a>
+                </div>
+
+                <div id="user-info" class="hidden">
+                    <div class="bg-gray-700 p-6 rounded-lg mb-6">
+                        <p class="text-gray-400"><i class="fas fa-user text-green-500 mr-2"></i>Имя пользователя: <span id="user-name" class="font-semibold"></span></p>
+                        <p class="text-gray-400"><i class="fas fa-phone text-green-500 mr-2"></i>Телефон: <span id="user-phone" class="font-semibold"></span></p>
+                    </div>
+            
+                    <h3 class="text-2xl font-bold text-green-500 mb-4">Ваши заявки</h3>
+                    <div class="bg-gray-700 p-6 rounded-lg">
+                        <ul id="user-requests" class="text-gray-400 space-y-2">
+                            <!-- Заявки будут добавляться сюда динамически -->
+                        </ul>
+                    </div>
+            
+                    <!-- Кнопка выхода -->
+                    <button id="logout" class="w-full bg-green-500 text-gray-900 py-2 rounded-lg hover:bg-green-600 transition duration-300 flex items-center justify-center mt-6">
+                        <i class="fas fa-sign-out-alt mr-2"></i>Выйти
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Блок для записи на услугу (всегда видимый) -->
+    <div class="bg-gray-800 border border-gray-700 shadow-lg rounded-xl p-8 max-w-4xl w-full mx-4 mt-8">
+        <section>
+            <h2 class="text-3xl font-bold text-green-500 mb-6">Записаться на услугу</h2>
+            <form class="space-y-4">
+                <input id="reqName" type="text" placeholder="Ваше имя" class="w-full bg-gray-600 border border-gray-500 rounded-lg p-2 text-gray-100 focus:border-green-500 focus:outline-none">
+                <input id="reqPhone" type="tel" placeholder="Ваш телефон" class="w-full bg-gray-600 border border-gray-500 rounded-lg p-2 text-gray-100 focus:border-green-500 focus:outline-none">
+                <textarea id="reqMessage" placeholder="Комментарий" class="w-full bg-gray-600 border border-gray-500 rounded-lg p-2 text-gray-100 focus:border-green-500 focus:outline-none"></textarea>
+                <button type="submit" class="w-full bg-green-500 text-gray-900 py-2 rounded-lg hover:bg-green-600 transition duration-300 flex items-center justify-center">
+                    <i class="fas fa-paper-plane mr-2"></i>Отправить заявку
+                </button>
+            </form>
+        </section>
+    </div>
+
+   <!-- Затемнение фона -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
+
+    <!-- Popup с формами входа и регистрации -->
+    <div id="login-popup" class="fixed inset-0 flex items-center justify-center hidden">
+        <div class="bg-gray-800 border border-gray-700 rounded-lg p-8 max-w-md w-full mx-4 relative">
+            <!-- Кнопка закрытия popup -->
+            <button id="close-popup" class="absolute top-4 right-4 text-gray-400 hover:text-green-500">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+
+            <!-- Форма входа -->
+            <div id="login-form">
+                <h2 class="text-2xl font-bold text-green-500 mb-6">Вход в личный кабинет</h2>
+                <form class="space-y-4">
+                    <div class="relative">
+                        <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input type="text" placeholder="Имя пользователя" class="w-full bg-gray-700 border border-gray-600 rounded-lg pl-10 pr-4 py-2 text-gray-100 focus:border-green-500 focus:outline-none">
+                    </div>
+                    <div class="relative">
+                        <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input type="password" placeholder="Пароль" class="w-full bg-gray-700 border border-gray-600 rounded-lg pl-10 pr-4 py-2 text-gray-100 focus:border-green-500 focus:outline-none">
+                    </div>
+                    <button type="submit" class="w-full bg-green-500 text-gray-900 py-2 rounded-lg hover:bg-green-600 transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-sign-in-alt mr-2"></i>Войти
+                    </button>
+                    <p class="text-gray-400 text-center">
+                        Нет аккаунта? <a href="#register" id="show-register-form" class="text-green-500 hover:underline">Зарегистрируйтесь</a>
+                    </p>
+                </form>
+            </div>
+
+            <!-- Форма регистрации -->
+            <div id="register-form" class="hidden">
+                <h2 class="text-2xl font-bold text-green-500 mb-6">Регистрация</h2>
+                <form class="space-y-4">
+                    <div class="relative">
+                        <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input type="text" placeholder="Имя пользователя" class="w-full bg-gray-700 border border-gray-600 rounded-lg pl-10 pr-4 py-2 text-gray-100 focus:border-green-500 focus:outline-none">
+                    </div>
+                    <div class="relative">
+                        <i class="fas fa-phone absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input type="tel" placeholder="Телефон" class="w-full bg-gray-700 border border-gray-600 rounded-lg pl-10 pr-4 py-2 text-gray-100 focus:border-green-500 focus:outline-none">
+                    </div>
+                    <div class="relative">
+                        <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input type="password" placeholder="Пароль" class="w-full bg-gray-700 border border-gray-600 rounded-lg pl-10 pr-4 py-2 text-gray-100 focus:border-green-500 focus:outline-none">
+                    </div>
+                    <div class="relative">
+                        <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input type="password" placeholder="Повторите пароль" class="w-full bg-gray-700 border border-gray-600 rounded-lg pl-10 pr-4 py-2 text-gray-100 focus:border-green-500 focus:outline-none">
+                    </div>
+                    <button type="submit" class="w-full bg-green-500 text-gray-900 py-2 rounded-lg hover:bg-green-600 transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-user-plus mr-2"></i>Зарегистрироваться
+                    </button>
+                    <p class="text-gray-400 text-center">
+                        Уже есть аккаунт? <a href="#login" id="show-login-form" class="text-green-500 hover:underline">Войдите</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
