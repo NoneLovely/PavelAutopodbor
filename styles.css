@@ -4,27 +4,22 @@ body {
     font-family: 'Oswald', sans-serif;
 }
 
-/* Скрыть все вкладки по умолчанию */
 .tab-content {
     display: none;
 }
 
-/* Показать активную вкладку */
 .tab-content.active {
     display: block;
 }
 
-/* Стили для затемнения фона */
 #overlay {
-    z-index: 1000; /* Убедитесь, что overlay поверх всего */
+    z-index: 1000;
 }
 
-/* Стили для popup */
 #login-popup {
-    z-index: 1001; /* Popup должен быть поверх overlay */
+    z-index: 1001;
 }
 
-/* Анимация для плавного появления popup */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
